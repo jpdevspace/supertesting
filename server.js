@@ -1,27 +1,26 @@
-var express = require('express'),
-  app = express(),
-  port = process.env.PORT || 3000,
-  mongoose = require('mongoose'),
-  Task = require('./api/models/todoListModel'),
-  bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
+const express = require('express');
+const mongoose = require('mongoose');
+
+const config = require('./config');
+const Task = require('./api/models/todoListModel');
+
+const app = express();
+const port = process.env.PORT || 3000;
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/Tododb');
 
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
-var routes = require('./api/routes/todoListRoutes');
+const routes = require('./api/routes/todoListRoutes');
 routes(app);
 
-app.use(function(req, res) {
+app.use((req, res) => {
   res.status(404).send({url: req.originalUrl + ' not found'})
 });
 
-app.listen(port);
-
-console.log('todo list RESTful API server started on: ' + port);
+app.listen(config.port, () => console.log(`Server started on: ${config.port}`));
 
 module.exports = app;

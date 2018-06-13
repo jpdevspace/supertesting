@@ -2,26 +2,21 @@
   "name": "todolistapi",
   "version": "1.0.0",
   "description": "RESTful todoListApi",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "NODE_ENV=test mocha --timeout 10000",
     "start": "nodemon server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/generalgmt/RESTfulAPITutorial.git"
   },
   "keywords": [
     "RESTful",
     "API",
-    "Tutorial"
+    "Testing",
+    "Mocha",
+    "Chai",
+    "Supertest"
   ],
-  "author": "olatunde garuba",
+  "author": "Jean Paul",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/generalgmt/RESTfulAPITutorial/issues"
-  },
-  "homepage": "https://github.com/generalgmt/RESTfulAPITutorial#readme",
   "devDependencies": {
     "chai": "^4.1.2",
     "mocha": "^5.2.0",
