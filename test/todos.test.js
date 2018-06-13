@@ -11,7 +11,7 @@ describe('API Tests', () => {
     name: 'integration test'
   };
 
-  describe('# GET all tasks', () => {
+  describe('GET all tasks', () => {
     it('Should get all tasks', done => {
       request(app)
         .get('/tasks')
@@ -27,7 +27,7 @@ describe('API Tests', () => {
     })
   });
 
-  describe('## Create task', () => {
+  describe('Create task', () => {
     it('Should create a task', done => {
       request(app)
         .post('/tasks')
@@ -38,7 +38,22 @@ describe('API Tests', () => {
           }
           expect(res.statusCode).to.equal(200);
           expect(res.body.name).to.equal('integration test');
-          task = res.body;
+          task = res.body; // Now our task object not only has name prop but an id (and everything else attached by the DB)
+          done();
+        });
+    });
+  });
+
+  describe('GET a task by its ID', () => {
+    it('Should get a specific task', done => {
+      request(app)
+        .get(`/tasks/${task._id}`)
+        .end((err, res) => {
+          if (err) {
+            console.error(err);
+          }
+          expect(res.statusCode).to.equal(200);
+          expect(res.body.name).to.be.equal('integration test');
           done();
         });
     });
