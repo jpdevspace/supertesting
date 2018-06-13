@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "NODE_ENV=test mocha --timeout 10000",
+    "test-coverage": "NODE_ENV=test istanbul cover _mocha -- -R spec",
     "start": "nodemon server.js"
   },
   "keywords": [
@@ -19,6 +20,7 @@
   "license": "ISC",
   "devDependencies": {
     "chai": "^4.1.2",
+    "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
     "nodemon": "^1.11.0",
     "supertest": "^3.1.0"

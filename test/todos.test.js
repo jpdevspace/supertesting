@@ -27,7 +27,7 @@ describe('API Tests', () => {
     })
   });
 
-  describe('Create task', () => {
+  describe('CREATE task', () => {
     it('Should create a task', done => {
       request(app)
         .post('/tasks')
