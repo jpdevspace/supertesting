@@ -1,12 +1,3 @@
-## Nodejs in 10 minutes
+# SuperTesting
 
-clone the project
-
-### Installations
-* npm install
-
-### Run
-
-* npm run start
-
-:)
+Simple test for a simple RESTful API with Mocha, Chai and SuperTest... by a simple man.
